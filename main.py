@@ -127,7 +127,7 @@ def menu()-> None:
             elif choice == "2":
                   #checking off the habit and updating the nessecary properties of habit
                   print_all_habits()
-                  habit_id_input = input("Please the id of the habit you want to cheak off")
+                  habit_id_input = int(input("Please the id of the habit you want to cheak off"))
                   if type(habit_id_input) == int:
                         specific_habit = db.get_habit_by_id(habit_id_input)
 
