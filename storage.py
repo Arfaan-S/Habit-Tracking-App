@@ -3,7 +3,7 @@ import json
 from datetime import datetime,timedelta, date
 
 
-from Habit import Habit
+from habit import Habit
 
 def adapt_date(val):
     """Converts a Python date object into a string for SQLite"""
