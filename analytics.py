@@ -2,7 +2,6 @@
 from typing import Tuple, Optional
 from habit import Habit
 from storage import HabitDB
-from Main import *
 
 db = HabitDB()
 
