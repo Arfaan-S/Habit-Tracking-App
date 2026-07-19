@@ -1,6 +1,8 @@
 from habit import Habit
-from storage import *
+from storage import HabitDB
+from datetime import datetime
 from analytics import *
+
 """defining Main menu as function so it can reused again and again for Command line interface"""
 db = HabitDB()
 
