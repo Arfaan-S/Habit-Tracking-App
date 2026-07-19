@@ -1,5 +1,4 @@
-#from Habit import *
-from Habit import Habit
+from habit import Habit
 from storage import *
 from analytics import *
 """defining Main menu as function so it can reused again and again for Command line interface"""
