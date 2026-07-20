@@ -197,7 +197,7 @@ def menu()-> None:
 
                         elif analytics_choice == "2":
                               max_streak, habit_max_streak = longest_streak_of_all_habits()
-                              print(f"{habit_max_streak} has the highest streak of {max_streak}")
+                              print(f"{habit_max_streak} has the highest streak of {max_streak}\n")
                               input("please click enter to continue...")
 
                         elif analytics_choice == "3":
