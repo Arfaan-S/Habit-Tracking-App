@@ -129,7 +129,7 @@ def menu()-> None:
                   print_all_habits()
                   habit_id_input = input("Please the id of the habit you want to cheak off")
 
-                  #To avoid valueerror try method is used
+                  #To avoid value error try method is used
                   try:
                         habit_id_input = int(habit_id_input)
                         specific_habit = db.get_habit_by_id(habit_id_input)
