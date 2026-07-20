@@ -83,7 +83,7 @@ def check_for_overdue() -> None:
 
                   db.update_habit(habit)
 
-def reset_checckoff()-> None:
+def reset_checkoff()-> None:
       """
           Resets the checkoff status for habits that were completed
           but have now passed their previous deadline.
@@ -112,7 +112,7 @@ def menu()-> None:
 
       # Run initial startup checks
       check_for_overdue()
-      reset_checckoff()
+      reset_checkoff()
       print_all_habits()
 
       # Use an infinite loop with 'break'
