@@ -164,7 +164,7 @@ def menu()-> None:
                   description = input("Enter the description of the habit: ")
                   periodicity = input("Enter the periodicity of the habit: ").upper()
 
-                  if periodicity not in {"D", "W"}:
+                  if periodicity in {"D", "W"}:
                         new_habit = Habit(name, description, periodicity)
                         db.save_habit(new_habit)
                         print(f"Habit {new_habit.name} has been created successfully.")
