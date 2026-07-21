@@ -176,11 +176,16 @@ def menu()-> None:
             elif choice == "4":
                   #deleting the habit
                   print_all_habits()
-                  try:
-                        habit_id = int(input("Enter the id of the habit that you want to delete: "))
-                        db.delete_habit(habit_id)
-                  except ValueError:
-                        print("invalid input please try again.")
+                  while True:
+                        try:
+                              habit_id = int(input("Enter the id of the habit that you want to delete: "))
+                              result = db.delete_habit(habit_id)
+                              if result:
+                                    pass
+                              else:
+                                    break
+                        except ValueError:
+                              print("invalid input please try again.")
                   input("please click enter to continue")
 
             elif choice == "5":

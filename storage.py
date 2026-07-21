@@ -191,8 +191,10 @@ class HabitDB:
             cur.execute('DELETE FROM habits WHERE habit_id = ?', (habit_id,))
             if cur.rowcount == 0:
                 print("No habit found with that ID.")
+                return True
             else:
                 print(f"Successfully deleted habit with that ID.{habit_id}.")
+                return False
             conn.commit()
         conn.close()
 
