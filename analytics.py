@@ -61,8 +61,10 @@ def longest_streak_of_specified_habit(habit_id: int) -> None:
     if habit:
         print(f"Longest streak of {habit.name} is {habit.highest_streak_count}")
         print(f"Record: {habit.record}")
+        return True
     else:
         print("Habit not found.")
+        return False
 
 
 def current_streak_of_all_habits():

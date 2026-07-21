@@ -212,13 +212,18 @@ def menu()-> None:
 
                         elif analytics_choice == "3":
                               print_all_habits()
-                              try:
-                                    target_id = int(input("enter ID of the habit:\n"))
-                                    longest_streak_of_specified_habit(target_id)
-                                    input("please click enter to continue...")
-                              except ValueError:
-                                    print("please enter valid input")
-                                    input("please click enter to continue...")
+                              while True:
+                                    try:
+                                          target_id = int(input("enter ID of the habit:\n"))
+                                          result = longest_streak_of_specified_habit(target_id)
+                                          if not result:
+                                                pass
+                                          else:
+                                                break
+                                    except ValueError:
+                                          print("please enter valid input .... .... ....")
+
+                              input(f"\nplease click enter to continue...\n")
 
                         elif analytics_choice == "4":
                               current_streak_of_all_habits()
