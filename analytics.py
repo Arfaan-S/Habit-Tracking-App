@@ -16,14 +16,10 @@ def habits_with_same_period(period:str)-> None:
         print("Invalid period specified. Please use 'D' or 'W' please try again. \n")
         return False
     else:
-
         # Fetch from the database
         all_habits = db.get_all_habits()
-
-        for habit in all_habits:
-            if habit.period == period:
-                print(f"Name of Habit is {habit.name} and it has {habit.period} periodicity.\n")
-        return True
+        matching_habits = list(filter(lambda habit: habit.period == period, all_habits))
+        return matching_habits
 
 def longest_streak_of_all_habits() -> Tuple[int, Optional[str]]:
     """

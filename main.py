@@ -201,10 +201,12 @@ def menu()-> None:
                               while True:
                                     print("Habit with daily periodicity or week  periodicity\n")
                                     user_response = input("enter D for daily periodicity or W for week periodicity:\n").upper()
-                                    result = habits_with_same_period(user_response)
-                                    if not result:
+                                    results = habits_with_same_period(user_response)
+                                    if not results:
                                           pass
                                     else:
+                                          for habit in results:
+                                                print(f"Name of Habit is {habit.name} and it has {habit.period} periodicity.")
                                           break
                               input("please click enter to continue...\n")
 
