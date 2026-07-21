@@ -41,7 +41,7 @@ This project is built with a focus on maintainability, separation of concerns, a
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/yourusername/habit-tracker-cli.git
+   git clone https://github.com/Arfaan-S/Habit-Tracking-App.git
    ```
 2. **Direct to Working Directory:**
     ```bash
