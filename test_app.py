@@ -110,7 +110,7 @@ def test_habits_with_same_period_daily(test_db, monkeypatch, capsys):
 
     analytics.habits_with_same_period("D")
 
-    # capsys captures what your function prints to the terminal
+    # capsys captures what function prints to the terminal
     captured = capsys.readouterr()
 
     # Verify Daily habits are printed
@@ -127,5 +127,5 @@ def test_struggling_habit(test_db, monkeypatch, capsys):
     analytics.struggling_Habit()
     captured = capsys.readouterr()
 
-    # Based on the mock data arrays, we expect a specific habit to trigger this
+    # Based on the mock data arrays, expect a specific habit to trigger this
     assert "is the most struggling habit" in captured.out
