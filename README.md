@@ -90,7 +90,7 @@ This project employs a Test-Driven Development (TDD) mindset with a robust suite
 Run the test suite via:
 
 ```bash
-pytest test_habit.py -v
+pytest test_app.py -v
 ```
 
 ## 👨‍💻 Author
