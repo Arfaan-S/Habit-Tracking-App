@@ -107,9 +107,9 @@ def struggling_Habit() -> None:
             worst_habit_record = last_30_days
     # Handle the edge case where the user has perfect streaks across all habits
     if worst_habit_name is None:
-        print("Great job! No struggling habits found in the last 30 days.")
+        print("Great job! No struggling habits found in the last 30 days.\n")
     else:
         # Split the output into multiple prints for cleaner code and terminal output
-        print(f"{worst_habit_name} is the most struggling habit.")
-        print(f"Record for last 30 days: {worst_habit_record}")
-        print(f"Habit missed {max_missed_count} times.")
+        print(f"{worst_habit_name} is the most struggling habit.\n")
+        print(f"Record for last 30 days: {worst_habit_record}\n")
+        print(f"Habit missed {max_missed_count} times.\n")

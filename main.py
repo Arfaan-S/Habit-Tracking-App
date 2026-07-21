@@ -118,7 +118,7 @@ def menu()-> None:
       # Use an infinite loop with 'break'
       while True:
             main_menu()
-            choice = input("Enter your choice:\n ")
+            choice = input("Enter your choice:\n")
 
             if choice == "1":
                   print_all_habits()
