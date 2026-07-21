@@ -13,7 +13,7 @@ def habits_with_same_period(period:str)-> None:
     """
     # Guard clause: Fail fast if an invalid period is provided
     if period not in {"D", "W"}:
-        print("Invalid period specified. Please use 'D' or 'W' please try again.")
+        print("Invalid period specified. Please use 'D' or 'W' please try again. \n")
         return False
     else:
 
@@ -22,7 +22,7 @@ def habits_with_same_period(period:str)-> None:
 
         for habit in all_habits:
             if habit.period == period:
-                print(f"Name of Habit is {habit.name} and it has {habit.period} periodicity.")
+                print(f"Name of Habit is {habit.name} and it has {habit.period} periodicity.\n")
         return True
 
 def longest_streak_of_all_habits() -> Tuple[int, Optional[str]]:
