@@ -45,11 +45,11 @@ This project is built with a focus on maintainability, separation of concerns, a
    ```
 2. **Direct to Working Directory:**
     ```bash
-   cd habit-tracker-cli
+   cd Habit-Tracking-App
     ```
 3. **Set up a virtual environment (Optional but Recommended):**
    ```bash
-   python -m venv venv
+   python3 -m venv venv
    ```
 4. **Activate the virtual environment:**
    * **On macOS/Linux:**
