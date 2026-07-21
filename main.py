@@ -127,35 +127,36 @@ def menu()-> None:
             elif choice == "2":
                   #checking off the habit and updating the nessecary properties of habit
                   print_all_habits()
-                  habit_id_input = input("Please the id of the habit you want to cheak off")
+                  while True:
+                        habit_id_input = input("Please the id of the habit you want to cheak off")
 
-                  #To avoid value error try method is used
-                  try:
-                        habit_id_input = int(habit_id_input)
-                        specific_habit = db.get_habit_by_id(habit_id_input)
+                        #To avoid value error try method is used
+                        try:
+                              habit_id_input = int(habit_id_input)
+                              specific_habit = db.get_habit_by_id(habit_id_input)
 
-                        if specific_habit:
+                              if specific_habit:
 
-                              if specific_habit.checkoff:
-                                    print(f"you have already done this habit will be avaliable from {specific_habit.previous_deadline}.")
+                                    if specific_habit.checkoff:
+                                          print(f"you have already done this habit will be avaliable from {specific_habit.previous_deadline}.")
+                                    else:
+                                          specific_habit.checkoff_update(True)
+                                          specific_habit.Record_update(True)
+
+                                          new_streak = specific_habit.current_streak_count + 1
+                                          specific_habit.update_current_streak_count(new_streak)
+
+                                          if new_streak > specific_habit.highest_streak_count:
+                                                specific_habit.update_highest_streak_count(new_streak)
+
+                                          specific_habit.Calculate_Deadline()
+                                          db.update_habit(specific_habit)
+                                    input("please click enter to continue")
+                                    break
                               else:
-                                    specific_habit.checkoff_update(True)
-                                    specific_habit.Record_update(True)
-
-                                    new_streak = specific_habit.current_streak_count + 1
-                                    specific_habit.update_current_streak_count(new_streak)
-
-                                    if new_streak > specific_habit.highest_streak_count:
-                                          specific_habit.update_highest_streak_count(new_streak)
-
-                                    specific_habit.Calculate_Deadline()
-                                    db.update_habit(specific_habit)
-                        else:
-                              print("Habit not found, try again with correct Habit ID")
-                        input("please click enter to continue")
-                  except ValueError:
-                        print("Invalid input please try again.")
-                        input("please click enter to continue")
+                                    print("Habit not found, try again with correct Habit ID")
+                        except ValueError:
+                              print("Invalid input please try again.")
 
             elif choice == "3":
                   # Adding new Habit
