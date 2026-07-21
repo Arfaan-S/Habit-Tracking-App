@@ -195,9 +195,14 @@ def menu()-> None:
                         analytics_choice = input("Enter your choice: ")
 
                         if analytics_choice == "1":
-                              print("Habit with daily periodicity or week  periodicity")
-                              user_response = str(input("enter D for daily periodicity or W for week periodicity:\n")).upper()
-                              habits_with_same_period(user_response)
+                              while True:
+                                    print("Habit with daily periodicity or week  periodicity")
+                                    user_response = input("enter D for daily periodicity or W for week periodicity:\n").upper()
+                                    result = habits_with_same_period(user_response)
+                                    if not result:
+                                          pass
+                                    else:
+                                          break
                               input("please click enter to continue...")
 
                         elif analytics_choice == "2":
