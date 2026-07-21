@@ -50,7 +50,6 @@ This project is built with a focus on maintainability, separation of concerns, a
 3. **Set up a virtual environment (Optional but Recommended):**
    ```bash
    python -m venv venv
-   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
    ```
 4. **Activate the virtual environment:**
    * **On macOS/Linux:**
