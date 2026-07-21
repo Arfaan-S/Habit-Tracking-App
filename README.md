@@ -71,7 +71,7 @@ This project is built with a focus on maintainability, separation of concerns, a
 Run the application directly from your terminal:
 
 ```bash
-python main.py
+python3 main.py
 ```
 
 Upon your first run, the database (`habits.db`) will automatically initialize and load 4 weeks of mock data to help you explore the analytics features right away.
