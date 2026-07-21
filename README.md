@@ -65,6 +65,15 @@ This project is built with a focus on maintainability, separation of concerns, a
    ```bash
    pip install -r requirements.txt
    ```
+## 🧪 Testing
+
+This project employs a Test-Driven Development (TDD) mindset with a robust suite of automated tests. The tests use `pytest` fixtures and `monkeypatch` to simulate database interactions and capture terminal output safely without affecting your actual `habits.db` data.
+
+Run the test suite via:
+
+```bash
+pytest test_app.py -v
+```
 
 ## 🚀 Usage
 
@@ -83,15 +92,6 @@ Upon your first run, the database (`habits.db`) will automatically initialize an
 * **[4] Delete a Habit:** Permanently remove a habit from the database.
 * **[5] Analytics:** Dive into your data to find your longest streaks, highest performing habits, and areas where you are struggling.
 
-## 🧪 Testing
-
-This project employs a Test-Driven Development (TDD) mindset with a robust suite of automated tests. The tests use `pytest` fixtures and `monkeypatch` to simulate database interactions and capture terminal output safely without affecting your actual `habits.db` data.
-
-Run the test suite via:
-
-```bash
-pytest test_app.py -v
-```
 
 ## 👨‍💻 Author
 

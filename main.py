@@ -118,17 +118,17 @@ def menu()-> None:
       # Use an infinite loop with 'break'
       while True:
             main_menu()
-            choice = input("Enter your choice: ")
+            choice = input("Enter your choice:\n ")
 
             if choice == "1":
                   print_all_habits()
-                  input("\nPress Enter to continue...")
+                  input("Press Enter to continue...\n")
 
             elif choice == "2":
                   #checking off the habit and updating the nessecary properties of habit
                   print_all_habits()
                   while True:
-                        habit_id_input = input("Please the id of the habit you want to cheak off")
+                        habit_id_input = input("Please the id of the habit you want to cheak off\n")
 
                         #To avoid value error try method is used
                         try:
@@ -138,7 +138,7 @@ def menu()-> None:
                               if specific_habit:
 
                                     if specific_habit.checkoff:
-                                          print(f"you have already done this habit will be avaliable from {specific_habit.previous_deadline}.")
+                                          print(f"you have already done this habit will be avaliable from {specific_habit.previous_deadline}.\n")
                                     else:
                                           specific_habit.checkoff_update(True)
                                           specific_habit.Record_update(True)
@@ -151,65 +151,67 @@ def menu()-> None:
 
                                           specific_habit.Calculate_Deadline()
                                           db.update_habit(specific_habit)
-                                    input("please click enter to continue")
+                                    input("please click enter to continue\n")
                                     break
                               else:
-                                    print("Habit not found, try again with correct Habit ID")
+                                    print("Habit not found, try again with correct Habit ID\n")
                         except ValueError:
-                              print("Invalid input please try again.")
+                              print("Invalid input please try again.\n")
 
             elif choice == "3":
                   # Adding new Habit
-                  print("enter the following details please:")
-                  name = input("Enter the name of the habit: ")
-                  description = input("Enter the description of the habit: ")
-                  periodicity = input("Enter the periodicity of the habit: ").upper()
+                  print("enter the following details please:\n")
+                  name = input("Enter the name of the habit: \n")
+                  description = input("Enter the description of the habit: \n")
+                  while True:
+                        periodicity = input("Enter the periodicity of the habit: \n").upper()
 
-                  if periodicity in {"D", "W"}:
-                        new_habit = Habit(name, description, periodicity)
-                        db.save_habit(new_habit)
-                        print(f"Habit {new_habit.name} has been created successfully.")
-                  else:
-                        print("Invalid input please try again.")
+                        if periodicity in {"D", "W"}:
+                              new_habit = Habit(name, description, periodicity)
+                              db.save_habit(new_habit)
+                              print(f"Habit {new_habit.name} has been created successfully.\n")
+                              break
+                        else:
+                              print("Invalid input please try again.\n")
 
-                  input("please click enter to continue")
+                  input("please click enter to continue\n")
 
             elif choice == "4":
                   #deleting the habit
                   print_all_habits()
                   while True:
                         try:
-                              habit_id = int(input("Enter the id of the habit that you want to delete: "))
+                              habit_id = int(input("Enter the id of the habit that you want to delete: \n"))
                               result = db.delete_habit(habit_id)
                               if result:
                                     pass
                               else:
                                     break
                         except ValueError:
-                              print("invalid input please try again.")
-                  input("please click enter to continue")
+                              print("invalid input please try again.\n")
+                  input("please click enter to continue\n")
 
             elif choice == "5":
                   # Sub-menu loop for analytics
                   while True:
                         analytics_menu()
-                        analytics_choice = input("Enter your choice: ")
+                        analytics_choice = input("Enter your choice: \n")
 
                         if analytics_choice == "1":
                               while True:
-                                    print("Habit with daily periodicity or week  periodicity")
+                                    print("Habit with daily periodicity or week  periodicity\n")
                                     user_response = input("enter D for daily periodicity or W for week periodicity:\n").upper()
                                     result = habits_with_same_period(user_response)
                                     if not result:
                                           pass
                                     else:
                                           break
-                              input("please click enter to continue...")
+                              input("please click enter to continue...\n")
 
                         elif analytics_choice == "2":
                               max_streak, habit_max_streak = longest_streak_of_all_habits()
                               print(f"{habit_max_streak} has the highest streak of {max_streak}\n")
-                              input("please click enter to continue...")
+                              input("please click enter to continue...\n")
 
                         elif analytics_choice == "3":
                               print_all_habits()
@@ -222,30 +224,30 @@ def menu()-> None:
                                           else:
                                                 break
                                     except ValueError:
-                                          print("please enter valid input .... .... ....")
+                                          print("please enter valid input .... .... ....\n")
 
                               input(f"\nplease click enter to continue...\n")
 
                         elif analytics_choice == "4":
                               current_streak_of_all_habits()
-                              input("please click enter to continue...")
+                              input("please click enter to continue...\n")
 
                         elif analytics_choice == "5":
                               struggling_Habit()
-                              input("please click enter to continue...")
+                              input("please click enter to continue...\n")
 
                         elif analytics_choice == "6":
                               break # Exits the analytics loop and returns to the main loop
 
                         else:
-                              print("please enter valid input")
-                              input("please click enter to continue")
+                              print("please enter valid input\n")
+                              input("please click enter to continue\n")
 
             elif choice == "6":
                   break # Exits the main loop, terminating the program
             else:
-                  print("please enter a valid choice")
-                  input("please click enter to continue")
+                  print("please enter a valid choice\n")
+                  input("please click enter to continue\n")
 
 
 if __name__ == "__main__":
