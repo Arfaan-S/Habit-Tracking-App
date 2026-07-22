@@ -21,6 +21,11 @@ def test_db():
 
     yield db  # This hands the database over to the test functions
 
+    if hasattr(db, 'conn'):
+        db.conn.close()  # If your connection variable is named 'conn'
+    elif hasattr(db, 'close'):
+        db.close()
+
     # Teardown: Remove the test database file after tests finish
     if os.path.exists(test_db_name):
         os.remove(test_db_name)
