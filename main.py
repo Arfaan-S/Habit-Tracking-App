@@ -205,8 +205,6 @@ def menu()-> None:
                                     if not results:
                                           pass
                                     else:
-                                          #for habit in results:
-                                                #print(f"Name of Habit is {habit.name} and it has {habit.period} periodicity.")
                                           break
                               input("please click enter to continue...\n")
 

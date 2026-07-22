@@ -21,7 +21,6 @@ def habits_with_same_period(period:str)-> None:
         for habit in all_habits:
              if habit.period == period:
                 print(f"Name of Habit is {habit.name} and it has {habit.period} periodicity.")
-        #matching_habits = list(filter(lambda habit: habit.period == period, all_habits))
         return True
 
 def longest_streak_of_all_habits() -> Tuple[int, Optional[str]]:
