@@ -18,8 +18,11 @@ def habits_with_same_period(period:str)-> None:
     else:
         # Fetch from the database
         all_habits = db.get_all_habits()
-        matching_habits = list(filter(lambda habit: habit.period == period, all_habits))
-        return matching_habits
+        for habit in all_habits:
+             if habit.period == period:
+                print(f"Name of Habit is {habit.name} and it has {habit.period} periodicity.")
+        #matching_habits = list(filter(lambda habit: habit.period == period, all_habits))
+        return True
 
 def longest_streak_of_all_habits() -> Tuple[int, Optional[str]]:
     """
