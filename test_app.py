@@ -3,6 +3,7 @@ import os
 from datetime import datetime, date, timedelta
 from habit import Habit
 from storage import HabitDB
+import analytics
 
 
 # ==========================================
@@ -21,9 +22,9 @@ def test_db():
 
     yield db  # This hands the database over to the test functions
 
-    if hasattr(db, 'conn'):
+    if hasattr(db, "conn"):
         db.conn.close()  # If your connection variable is named 'conn'
-    elif hasattr(db, 'close'):
+    elif hasattr(db, "close"):
         db.close()
 
     # Teardown: Remove the test database file after tests finish
@@ -94,7 +95,7 @@ def test_database_mock_data_insertion(test_db):
 # ==========================================
 # 4. ANALYTICS TESTS (Testing functional logic)
 # ==========================================
-import analytics
+
 
 
 def test_longest_streak_of_all_habits(test_db, monkeypatch):

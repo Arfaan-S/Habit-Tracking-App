@@ -1,7 +1,9 @@
+
 import sqlite3
 import json
 from datetime import datetime,timedelta, date
 from typing import List, Optional
+from unittest import result
 
 from habit import Habit
 
@@ -86,7 +88,6 @@ class HabitDB:
 
     def get_all_habits(self) -> List[Habit]:
         """Retrieves all habits from the database and returns them as Habit objects."""
-        habits = []
         with sqlite3.connect(self.db_name, detect_types=sqlite3.PARSE_DECLTYPES) as conn:
             # This allows us to access columns by name (e.g., row['name'])
             conn.row_factory = sqlite3.Row
@@ -95,6 +96,7 @@ class HabitDB:
             cursor.execute("SELECT * FROM habits")
             rows = cursor.fetchall()
 
+            habits = []
             for row in rows:
                 # Convert the JSON string back into a Python list
                 record_list = json.loads(row['record'])
@@ -114,8 +116,7 @@ class HabitDB:
                     highest_streak_count=row['highest_streak_count']
                 )
                 habits.append(habit)
-        # conn.close() now runs on every call, since nothing returns
-        # from inside the `with` block anymore.
+            #return habits
         conn.close()
         return habits
 
@@ -144,9 +145,12 @@ class HabitDB:
                     current_streak_count=row['current_streak_count'],
                     highest_streak_count=row['highest_streak_count']
                 )
-            # result stays None here if no habit was found with that ID
+            #return None  # Returns None if no habit was found with that ID
         conn.close()
+        #if result:
         return result
+        #else:
+            #return None
 
     def update_habit(self, habit: Habit):
         """Overwrites the database row with the current state of the Habit object."""
@@ -190,35 +194,25 @@ class HabitDB:
                 Deletes a habit from the database by its ID.
                 Returns True if a habit was successfully deleted, False otherwise.
         """
-        result = False
         with sqlite3.connect(self.db_name) as conn:
             cur = conn.cursor()
             cur.execute('DELETE FROM habits WHERE habit_id = ?', (habit_id,))
-            # The `with` block commits automatically on a clean exit,
-            # so this still gets saved even without an explicit conn.commit().
             if cur.rowcount == 0:
                 print("No habit found with that ID.")
-                result = True
+                return True
             else:
                 print(f"Successfully deleted habit with that ID.{habit_id}.")
-                result = False
+                return False
+            conn.commit()
         conn.close()
-        return result
 
     def insert_mock_data(self):
         """Insert 5 predefined habits and 4 weeks of mock completion data."""
         with sqlite3.connect(self.db_name, detect_types=sqlite3.PARSE_DECLTYPES) as conn:
             cursor = conn.cursor()
             cursor.execute("SELECT COUNT(*) FROM habits")
-            data_already_exists = cursor.fetchone()[0] > 0
-
-        conn.close()
-
-        if data_already_exists:
-            return  # Data already exists; connection above is already closed
-
-        with sqlite3.connect(self.db_name, detect_types=sqlite3.PARSE_DECLTYPES) as conn:
-            cursor = conn.cursor()
+            if cursor.fetchone()[0] > 0:
+                return  # Data already exists
             now = datetime.today().date()
             creation_time = (now - timedelta(days=30))
             print(f"Creation time: {creation_time}")
