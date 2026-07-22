@@ -116,7 +116,6 @@ class HabitDB:
                     highest_streak_count=row['highest_streak_count']
                 )
                 habits.append(habit)
-            #return habits
         conn.close()
         return habits
 
