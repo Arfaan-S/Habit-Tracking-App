@@ -56,7 +56,7 @@ def analytics_menu():
 #Functions
 
 # function to check if the deadline is missed you
-# function to check if the deadline is missed you
+
 def check_for_overdue() -> None:
       """
           Scans all habits and updates the status of those past their deadline.
