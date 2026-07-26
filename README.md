@@ -31,6 +31,7 @@ This project is built with a focus on maintainability, separation of concerns, a
 ```text
 .
 ├── main.py            # Primary entry point; handles the CLI loop and user interactions
+├── cli_views.py       # Contains functions responsible for printing the CLI menus
 ├── habit.py           # Core domain model; encapsulates Habit properties and date logic
 ├── storage.py         # Database layer; handles all SQLite CRUD operations
 ├── analytics.py       # Analytics module; processes data to generate user insights
