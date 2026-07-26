@@ -48,6 +48,6 @@ def analytics_menu():
     print("│  [2] 🏆 Longest Streak (All Habits)           │")
     print("│  [3] 🎯 Longest Streak (Specific Habit)       │")
     print("│  [4] 🔥 Current Streaks                       │")
-    print("│  [5] ⚠️ Most Struggled Habits (Last 30 Days)  │")
-    print("│  [6] ⬅️  Back to Main Menu                    │")
+    print("│  [5] ⚠️ Most Struggled Habits (Last 30 Days)   │")
+    print("│  [6] ⬅️  Back to Main Menu                     │")
     print("╰───────────────────────────────────────────────╯")
